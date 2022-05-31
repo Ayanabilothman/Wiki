@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block body %}
+    <h2>Results for "{{keyword}}"</h2>
+    <ul>
+        {% for result in results %}
+            <li><a href="{% url "encyclopedia:entry" result%}">{{result}}</a></li>
+        {% empty %}
+            <div>Sorry "{{keyword}}" does not exist!</div>
+        {% endfor %}
+    </ul>
+{% endblock %}
